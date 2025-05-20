@@ -241,6 +241,20 @@ button {
   grid-column: 3;
 }
 
+.cart-footer {
+  margin: 2rem;
+  text-align: center;
+}
+
+.cart-total {
+  display: inline-block;
+  background-color: black;
+  color: white;
+  font-family: roboto;
+  font-weight: 700;
+  border-radius: 10px;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;

@@ -1,10 +1,7 @@
-import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
+import { getLocalStorage } from "./utils.mjs";
 
-loadHeaderFooter();
-
-function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+function renderCartContents(items) {
+  const htmlItems = items.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
 
@@ -23,7 +20,6 @@ function cartItemTemplate(item) {
   <p class="cart-card__quantity">qty: 1</p>
   <p class="cart-card__price">$${item.FinalPrice}</p>
 </li>`;
-
   return newItem;
 }
 
@@ -39,7 +35,7 @@ function calculateCartTotal(items) {
   });
 
   const totalAmount = document.querySelector(".cart-total");
-  totalAmount.innerHTML += `$${total.toFixed(2)}`;
+  totalAmount.innerHTML += `$${total}`;
 }
 const cartItems = getLocalStorage("so-cart");
 renderCartContents(cartItems);
