@@ -67,6 +67,11 @@ function renderProductDetail(product) {
     messageDiv.style.marginTop = '10px';
     e.target.parentElement.appendChild(messageDiv);
     setTimeout(() => { messageDiv.remove(); }, 3000);
+
+    const sup = document.getElementById("cart-count");
+    sup.innerHTML = cart.length;
+
+    document.querySelector('.cart-link').classList.toggle("saved");
   });
 }
 
